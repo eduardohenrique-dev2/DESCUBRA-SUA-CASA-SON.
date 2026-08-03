@@ -34,7 +34,7 @@ const CONTACT_PHONE = '5531996164960';
 const WHATSAPP_TEMPLATE = [
   'Olá, Laura! Tudo bem? 😊',
   '',
-  'Acabei de concluir o Descubra sua Casa do Grupo de Jovens SON.',
+  'Acabei de concluir o Descubra sua Casa do SON.',
   '',
   'Minha Casa foi:',
   '🛡 {{NOME_DA_CASA}}',
