@@ -1,0 +1,14 @@
+{
+  "name": "Descubra sua Casa | SON.",
+  "short_name": "Descubra sua Casa",
+  "description": "Jornada de discernimento no SON: descubra a Casa onde seus dons podem florescer.",
+  "start_url": "/descubra/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/descubra/images/houses/son-escudo.webp", "sizes": "473x643", "type": "image/webp", "purpose": "any" }
+  ]
+}

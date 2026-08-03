@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Descubra sua Casa | SON</title>
+<meta name="description" content="Deus preparou um lugar onde seus dons podem florescer. Inicie a jornada de discernimento e descubra sua Casa no SON.">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:title" content="Descubra sua Casa | SON.">
+<meta property="og:description" content="Deus preparou um lugar onde seus dons podem florescer. Descubra sua Casa no SON.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Descubra sua Casa | SON.">
+<meta name="twitter:description" content="Jornada de discernimento no SON.">
+<meta property="og:image" content="https://son-house-journey.lovable.app/descubra/images/houses/son-escudo.webp">
+<meta name="twitter:image" content="https://son-house-journey.lovable.app/descubra/images/houses/son-escudo.webp">
+<meta property="og:url" content="https://son-house-journey.lovable.app/descubra/">
+<link rel="canonical" href="https://son-house-journey.lovable.app/descubra/">
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/descubra/images/houses/son-escudo.webp">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Cpath d='M50 14 L82 27 V58 C82 79 66 90 50 96 C34 90 18 79 18 58 V27 Z' fill='none' stroke='%23D4AF37' stroke-width='6'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- Ambiente: ondas luminosas + partículas douradas -->
+<div class="ambience" aria-hidden="true">
+  <span class="wave wave-1"></span>
+  <span class="wave wave-2"></span>
+  <span class="wave wave-3"></span>
+</div>
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<main class="app">
+
+  <!-- ==================== 1. LANDING ==================== -->
+  <section class="screen landing active" id="screen-landing" aria-labelledby="landing-title">
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="crest-wrap">
+      <img class="crest breathe" src="images/houses/son-escudo.webp" alt="Escudo oficial do Grupo de Jovens SON com as quatro Casas"
+           width="473" height="643" fetchpriority="high">
+    </div>
+
+    <p class="kicker reveal" style="--d:.05s">SON.</p>
+
+    <h1 class="title reveal" id="landing-title" style="--d:.15s">
+      DESCUBRA<br>SUA CASA
+    </h1>
+
+    <div class="rule reveal" style="--d:.25s" aria-hidden="true"></div>
+
+    <p class="lead reveal" style="--d:.35s">
+      Deus preparou um lugar onde seus dons podem florescer.
+    </p>
+
+    <button class="btn btn-gold reveal" id="btn-start" type="button" style="--d:.45s">
+      Descobrir minha Casa
+    </button>
+
+    <ul class="shield-row reveal" id="landing-shields" style="--d:.55s" aria-label="As Casas do SON"></ul>
+  </section>
+
+  <!-- ==================== 2. QUIZ ==================== -->
+  <section class="screen quiz" id="screen-quiz" aria-labelledby="question-text">
+    <ul class="shield-row shield-row-sm" id="quiz-shields" aria-hidden="true"></ul>
+
+    <div class="progress-wrap">
+      <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso da jornada" id="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="progress-meta">Pergunta <b id="q-current">1</b> de <b id="q-total">12</b></p>
+    </div>
+
+    <p class="progress-message" id="progress-message" aria-live="polite"></p>
+
+    <h2 class="question" id="question-text">&mdash;</h2>
+    <div class="options" id="options-wrap" role="radiogroup" aria-label="Alternativas"></div>
+
+    <button class="btn btn-quiet" id="btn-back" type="button">Voltar</button>
+  </section>
+
+  <!-- ==================== 3. LOADING ==================== -->
+  <section class="screen loading" id="screen-loading" aria-label="Discernindo sua Casa">
+    <p class="loading-tag" id="loading-tag" aria-live="polite">&nbsp;</p>
+    <div class="loading-stage" id="loading-stage" aria-hidden="true">
+      <ul class="shield-row shield-row-lg" id="loading-shields"></ul>
+      <span class="beam" id="loading-beam"></span>
+    </div>
+  </section>
+
+  <!-- ==================== 4. RESULTADO ==================== -->
+  <section class="screen result" id="screen-result" aria-labelledby="result-name">
+    <p class="eyebrow" id="result-eyebrow">Sua Casa é</p>
+
+    <div class="result-shield" id="result-shield-wrap">
+      <img id="result-image" src="" alt="" width="480" height="640">
+    </div>
+
+    <h2 class="house-name" id="result-name">&mdash;</h2>
+    <p class="house-tagline" id="result-tagline">&mdash;</p>
+
+    <blockquote class="verse">
+      <p id="result-verse">&mdash;</p>
+      <cite id="result-verse-ref">&mdash;</cite>
+    </blockquote>
+
+    <p class="desc" id="result-desc">&mdash;</p>
+
+    <div class="compat">
+      <div class="compat-head">
+        <span>Compatibilidade</span>
+        <b id="compat-value">0%</b>
+      </div>
+      <p class="compat-note" id="compat-note" aria-live="polite"></p>
+      <div class="compat-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Compatibilidade com a Casa" id="compat-track">
+        <div class="compat-fill" id="compat-fill"></div>
+      </div>
+    </div>
+
+    <section class="block">
+      <h3>Por que esta Casa combina com você</h3>
+      <p id="result-whyfit">&mdash;</p>
+    </section>
+
+    <section class="block">
+      <h3>O que você viverá nesta Casa</h3>
+      <ul class="list" id="result-live-list"></ul>
+    </section>
+
+    <section class="block">
+      <h3>Seu perfil</h3>
+      <p id="result-profile-summary">&mdash;</p>
+      <ul class="traits" id="result-profile-list"></ul>
+    </section>
+
+    <div class="actions">
+      <a class="btn btn-join" id="btn-join" href="#" target="_blank" rel="noopener">
+        <img id="btn-join-shield" src="" alt="" width="28" height="36" aria-hidden="true">
+        <span id="btn-join-label">Entrar na Casa</span>
+      </a>
+      <div class="actions-row">
+        <button class="btn btn-quiet" id="btn-share" type="button">Compartilhar</button>
+        <button class="btn btn-quiet" id="btn-restart" type="button">Refazer teste</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>SON &middot; Descubra sua Casa</footer>
+
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/quiz-data.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
